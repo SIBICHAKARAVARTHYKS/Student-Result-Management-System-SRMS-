@@ -1,0 +1,5 @@
+SELECT s.name, SUM(m.marks_obtained) AS Total, 
+       AVG(m.marks_obtained) AS Average
+FROM Students s
+JOIN Marks m ON s.student_id = m.student_id
+GROUP BY s.name;
