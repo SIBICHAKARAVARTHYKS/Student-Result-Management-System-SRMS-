@@ -1,0 +1,10 @@
+SELECT s.name, sub.subject_name, m.marks_obtained,
+  CASE
+    WHEN m.marks_obtained >= 90 THEN 'A'
+    WHEN m.marks_obtained >= 75 THEN 'B'
+    WHEN m.marks_obtained >= 60 THEN 'C'
+    ELSE 'D'
+  END AS Grade
+FROM Students s
+JOIN Marks m ON s.student_id = m.student_id
+JOIN Subjects sub ON sub.subject_id = m.subject_id;
